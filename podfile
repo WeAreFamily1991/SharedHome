@@ -1,0 +1,21 @@
+platform :ios, '10.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'SharedHome' do
+
+pod 'SDWebImage'
+pod 'MJExtension'
+pod 'MJRefresh'
+pod 'IQKeyboardManager'
+pod 'Masonry'
+pod 'SVProgressHUD'
+pod 'MBProgressHUD'
+pod 'Toast'
+pod 'TZImagePickerController'
+pod 'SDCycleScrollView'
+pod 'Bugly'
+pod 'SocketRocket'
+pod 'FMDB'
+pod 'AlipaySDK-iOS'
+
+end

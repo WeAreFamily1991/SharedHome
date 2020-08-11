@@ -1,0 +1,149 @@
+//
+//  PrefixHeader.pch
+//  SharedHome
+//
+//  Created by 解辉 on 2020/7/27.
+//  Copyright © 2020 NaDao. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+
+/*-------------插件---------------*/
+#import <AVFoundation/AVFoundation.h>
+#import "AFNetworking.h"
+#import "UIKit+AFNetworking.h"
+#import "MJExtension.h"
+#import "MJRefresh.h"
+#import "Masonry.h"
+#import "Toast.h"
+#import <SDWebImage/SDImageCache.h>
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
+
+#import "MBProgressHUD+MJ.h"
+#import "SVProgressHUD.h"
+
+#import <EventKit/EventKit.h>
+#import "IQKeyboardManager.h"
+
+#import "AppDelegate+Category.h"
+#import "NSString+Helper.h"
+#import "UIButton+Helper.h"
+#import "UIImage+Helper.h"
+#import "UILabel+Helper.h"
+#import "UIView+Extension.h"
+#import "UIBarButtonItem+SXCreate.h"
+
+#import "CommonMethod.h"
+#import "HTTPRequest.h"
+#import "XMToolClass.h"
+#import "YZMBPManager.h"
+
+
+#import "HHWZWebView.h"
+#import "FooterView.h"
+
+#import "BigClickBT.h"
+#import "UITextField+SPExtension.h"
+#import "HTTPRequest.h"
+#import "UILabel+TapAction.h"
+#import "NSString+Extension.h"
+
+#import "Save.h"
+//================================ //高德地图  ===========================================
+#define GD_Key  @"d6a5530e547a46494e70824d234f28e1"
+
+#define DeviceType @"2"//1安卓 2IOS
+#define LayerCornerRadius WScale(6)
+
+
+//#define HttpRequestURL @"https://dev-gateway.ipzoe.com/share-home-client/v1/api/"
+
+#define HttpRequestURL @"https://dev-gateway.ipzoe.com/share-home-client/v1/api/"
+
+
+#define PayNotifition @"AlipayResult"
+#define WXPAYSUCCESS @"WeixinPaySuccess"//微信支付成功的通知
+#define WXPAYFAILURE @"WeixinPayFailure"//微信支付失败的通知
+
+#define APPSCHEME @"FishProjectNado"
+
+///长链接
+#define NZNotificationCenter [NSNotificationCenter defaultCenter]
+#define WillResignActive @"WillResignActive"
+#define WEBSOCKETCHANGETITLE @"WebsocketChangeCircleMessage"
+
+/*-------------简写---------------*/
+#define APPDELEGATE ((AppDelegate*)[[UIApplication sharedApplication] delegate])
+#define NZNotificationCenter [NSNotificationCenter defaultCenter]
+#define StringWithName(name) NSLocalizedStringFromTable(name, @"Fish", nil)
+
+/*-------------颜色相关---------------*/
+#pragma mark - UIColor宏定义
+#define UIColorFromRGBA(rgbValue, alphaValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0x00FF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0x0000FF))/255.0 \
+alpha:alphaValue]
+
+#define UIColorFromRGB(rgbValue) UIColorFromRGBA(rgbValue, 1.0)
+#define RGBCOLOR(r, g, b)       [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+#define RGBACOLOR(r, g, b, a)   [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+
+#define ThemeColor UIColorFromRGB(0x4DCCC2)
+#define SeparatorCOLOR UIColorFromRGB(0xeeeeee)
+#define TableColor UIColorFromRGB(0xe6e6e6)
+#define ClearColor [UIColor clearColor]
+#define WhiteColor [UIColor whiteColor]
+#define BlackColor UIColorFromRGB(0x3a3a3a)
+#define BlackColor2 UIColorFromRGB(0x1d1e2c)
+#define BlackNameColor UIColorFromRGB(0x333333)
+#define OrangeColor UIColorFromRGB(0xfa5151)
+#define BlueColor UIColorFromRGB(0x4574d3)
+#define GreenColor UIColorFromRGB(0x73c6c4)
+#define GrayColor UIColorFromRGB(0xa3a3a3)
+
+
+
+/*-------------尺寸&字体---------------*/
+#define kWindowH   [UIScreen mainScreen].bounds.size.height //应用程序的屏幕高度
+#define kWindowW    [UIScreen mainScreen].bounds.size.width  //应用程序的屏幕宽度
+#define HScale(v) v / 667. * (kWindowW>kWindowH?kWindowW:kWindowH) //高度比
+#define WScale(w) w / 375. * (kWindowW<kWindowH?kWindowW:kWindowH) //宽度比
+
+/*-------------机型---------------*/
+#define IS_IPHONEX (kWindowW >= 375.0f && kWindowH >= 812.0f)
+//  安全距离
+#define SafeAreaTopHeight (IS_IPHONEX ? 88.0 : 64.0)
+#define SafeAreaBottomHeight (IS_IPHONEX ? 34:0)
+
+//  状态栏高度
+#define SafeAreaStateHeight (IS_IPHONEX ? 44.0 : 20.0)
+
+#define kFont(size) [UIFont systemFontOfSize:(WScale(size))]
+
+/**
+ 弱引用
+ */
+#define YBWeakSelf __weak typeof(self) weakSelf = self;
+
+#define kGAP WScale(5)
+#define kAvatar_Size WScale(40)
+
+
+#ifdef DEBUG//处于开发阶段
+#define NZLog(...) NSLog(__VA_ARGS__)
+
+#else//处于发布阶段
+#define NZLog(...)
+#endif
+
+
+#endif
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
